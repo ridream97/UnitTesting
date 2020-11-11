@@ -37,7 +37,7 @@ namespace UnitTestTask.Test.Tests
             Assert.AreEqual(17, actualDiscount);
         }
 
-        [TestCase("Ana")]
+        [TestCase("Ana", 5)]
         public void CountDiscount_WithoutBirthYear_Test(string name, int yearsOfLoyality)
         {
             var client = new Client()

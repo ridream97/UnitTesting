@@ -14,7 +14,7 @@ namespace UnitTestTask.Models
 
         public int CountDiscount()
         {
-            if(BirthYear > 2010)
+            if(BirthYear < 2010 && BirthYear > 1900)
             {
                 var age = DateTime.Now.Year - BirthYear;
                 return YearsOfLoyalty > 5 ? age + YearsOfLoyalty : age - YearsOfLoyalty;
