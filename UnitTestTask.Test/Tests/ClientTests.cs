@@ -37,13 +37,17 @@ namespace UnitTestTask.Test.Tests
             Assert.AreEqual(17, actualDiscount);
         }
 
-        [TestCase("Ana", 2001, 2)]
-        public void CountDiscountNoClient_WrongTest(string name, int birthYear, int yearsOfLoyality)
+        [TestCase("Ana")]
+        public void CountDiscount_WithoutBirthYear_Test(string name, int yearsOfLoyality)
         {
-            var client = new Client();
+            var client = new Client()
+            { 
+                Name = name,
+                YearsOfLoyalty = yearsOfLoyality
+            };
             var actualDiscount = client.CountDiscount();
 
-            Assert.AreEqual(17, actualDiscount);
+            Assert.AreEqual(0, actualDiscount);
         }
     }
 }

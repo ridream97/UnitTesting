@@ -14,9 +14,12 @@ namespace UnitTestTask.Models
 
         public int CountDiscount()
         {
-            var age = DateTime.Now.Year - BirthYear;
-
-            return YearsOfLoyalty > 5 ? age + YearsOfLoyalty : age - YearsOfLoyalty;
+            if(BirthYear > 2010)
+            {
+                var age = DateTime.Now.Year - BirthYear;
+                return YearsOfLoyalty > 5 ? age + YearsOfLoyalty : age - YearsOfLoyalty;
+            }
+            return 0;
         }
     }
 }

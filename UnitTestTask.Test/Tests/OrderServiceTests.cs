@@ -12,9 +12,9 @@ namespace UnitTestTask.Test.Tests
     [TestFixture]
     public class OrderServiceTests
     {
-        public IDeliveryCalculator deliveryCalculator;
-        public IOrderService orderService;
-        public IOrderDelivery orderDelivery;
+        private IDeliveryCalculator deliveryCalculator;
+        private IOrderService orderService;
+        private IOrderDelivery orderDelivery;
         [SetUp]
         public void Initialize()
         {
@@ -23,7 +23,7 @@ namespace UnitTestTask.Test.Tests
             orderDelivery = new OrderDelivery();
         }
         [Test]
-        public void PrepairOrderTest()
+        public void PrepairOrder_Test()
         {
             var order = new Order()
             {

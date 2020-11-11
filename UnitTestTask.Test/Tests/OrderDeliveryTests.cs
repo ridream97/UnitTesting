@@ -12,9 +12,9 @@ namespace UnitTestTask.Test.Tests
     [TestFixture]
     public class OrderDeliveryTests
     {
-        public IDeliveryCalculator deliveryCalculator;
-        public IOrderService orderService;
-        public IOrderDelivery orderDelivery;
+        private IDeliveryCalculator deliveryCalculator;
+        private IOrderService orderService;
+        private IOrderDelivery orderDelivery;
         [SetUp]
         public void Initialize()
         {
@@ -33,14 +33,14 @@ namespace UnitTestTask.Test.Tests
             Assert.AreEqual(State.Delivered.ToString(), finalOrderStatus.State.ToString());
         } 
         [Test]
-        public void DeliverOrder_WrongTest()
+        public void DeliverOrderWithPending_Test()
         {
             var orderStatus = new OrderStatus()
             {
                 State = State.Pending
             };
             var finalOrderStatus = orderDelivery.DeliverOrder(orderStatus);
-            Assert.AreEqual(State.Delivered.ToString(), finalOrderStatus.State.ToString());
+            Assert.AreEqual(State.Pending.ToString(), finalOrderStatus.State.ToString());
         }
     }
 }
